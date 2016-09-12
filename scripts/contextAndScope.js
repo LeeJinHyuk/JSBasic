@@ -28,49 +28,49 @@ function globalFunc() {
 console.log(window.globalVariable);
 window.globalFunc();
 
+console.log("##########################################");
+
 // 2. 스코프 체인 : 실행 컨텍스트 안에서 연결 리스트 형태로 존재하며 변수 접근에 사용
 
 /*
  * 전역 스코프 체인
  */
-// var test1 = "test1";
-// var test2 = "test2";
+var test1 = "test1";
+var test2 = "test2";
 
 /*
  * func1 실행 스코프 체인
  */
-// function func1() {
-//     var test1 = 1;
-//     var test2 = 2;
-//     console.log(test1);
-//     console.log(test2);
-//     function func2() {
-//         var test2 = 22;
-//         console.log(test2);
-//     }
-//     func2();
-// }
-// func1();
-// console.log(test1);
-// console.log(test2);
+function func1() {
+    var test1 = 1;
+    var test2 = 2;
+    console.log(test1);
+    console.log(test2);
+    function func2() {
+        var test2 = 22;
+        console.log(test2);
+    }
+    func2();
+}
+func1();
+console.log(test1);
+console.log(test2);
+
+console.log("##########################################");
 
 /*
  * func3 실행 스코프 체인
  */
-// function func3(func) {
-//     var test1 = 1;
-//     func();
-//     console.log(test1);
-// }
-//
-// function func4() {
-//     console.log(test1);
-// }
-//
-// func3(func4);
+function func3(func) {
+    var test1 = 1;
+    func();
+    console.log(test1);
+}
 
+function func4() {
+    console.log(test1);
+}
 
-window.onload = function() {
-    console.log("onload");
+func3(func4);
 
-};
+console.log("##########################################");

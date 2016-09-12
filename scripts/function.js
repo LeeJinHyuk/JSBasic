@@ -22,6 +22,8 @@ object2.objectFunc = object1.objectFunc;
 object1.objectFunc();
 object2.objectFunc();
 
+console.log("##########################################");
+
 /*
  * 함수를 호출할 때의 this
  * 전역 객체에 this가 바인딩된다.
@@ -33,6 +35,8 @@ function testFunc() {
 }
 
 testFunc();
+
+console.log("##########################################");
 
 /**
  * 생성자 함수로의 this
@@ -54,6 +58,8 @@ console.log(person2.name);
 // console.dir(person1);
 // console.dir(person2);
 
+console.log("##########################################");
+
 // 2. call, apply 의 this
 // call apply 의 경우 함수를 실행한다는 개념. 단, this를 변경하면서 실행.
 
@@ -62,8 +68,14 @@ function personFunc(name, age) {
     this.age = age;
 }
 
-var obj = {};
-console.log(obj);
-personFunc.call(obj, "lee", 30);
-//personFunc.apply(obj, ["lee", 30]);
-console.log(obj);
+var obj1 = {};
+var obj2 = {};
+console.log(obj1);
+console.log(obj2);
+personFunc.call(obj1, "lee", 30);
+personFunc.apply(obj2, ["lee", 30]);
+
+console.log("##########################################");
+
+console.log(obj1);
+console.log(obj2);
